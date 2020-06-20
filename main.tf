@@ -49,8 +49,8 @@ resource "aws_lambda_function" "lambda" {
   timeout = 15
 
   handler          = "main"
-  filename         = "${path.module}/lambda/${var.lambda_version}/rds-schedule.zip"
-  source_code_hash = filebase64sha256("${path.module}/lambda/${var.lambda_version}/rds-schedule.zip")
+  filename         = "${path.module}/lambda/pkg/rds-schedule-${var.lambda_version}.zip"
+  source_code_hash = filebase64sha256("${path.module}/lambda/pkg//rds-schedule-${var.lambda_version}.zip")
 
   tags = var.tags
 }

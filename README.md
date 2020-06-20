@@ -4,7 +4,7 @@ This module allows to set automatic startup and shutdown schedule based on Lambd
 
 ## Generating function
 
-The Terraform module is not responsible for packaging the lambda function. This must be done manually by setting version in `lambda/VERSION` and building the function with the command `make`. The packaged functions are versioned alongside the code in `lambda/$VERSION/rds-schedule.zip`.
+The Terraform module is not responsible for packaging the lambda function. This must be done manually by setting version in `lambda/VERSION` and building the function with the command `make`. The packaged functions are versioned alongside the code in `lambda/pkg/`.
 
 ## How to use it
 
@@ -14,6 +14,7 @@ module "rds-schedule" {
   version = "v1.0.0"
   
   lambda_name          = "rds-schedule-lambda"
+  lambda_version       = "v1.0"
   lambda_iam_role_name = "rds-schedule-lambda-role"
   
   # In this case, instances will startup at 7AM and shutdown at 7PM
